@@ -1,4 +1,7 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/61b7dc74-6201-498f-98e9-82d1651300c1/deploy-status)](https://app.netlify.com/sites/tender-ramanujan-efd137/deploys)
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+
 <p align="center">
   <a href="https://www.gatsbyjs.org">
     <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
