@@ -1,19 +1,19 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import { css } from '@emotion/core';
-import Dropdown from 'react-bootstrap/Dropdown';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import useTours from '../hooks/useTours';
-import { Link } from 'gatsby';
+import React from 'react'
+import styled from '@emotion/styled'
+import { css } from '@emotion/core'
+import Dropdown from 'react-bootstrap/Dropdown'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
+import useTours from '../hooks/useTours'
+import { Link } from 'gatsby'
 
-const FormSection = styled(Row)``;
+const FormSection = styled(Row)``
 
 const TourForm = () => {
-  const allTours = useTours();
-  const [participants, setParticipants] = React.useState(null);
-  const [tour, setTour] = React.useState(null);
+  const allTours = useTours()
+  const [participants, setParticipants] = React.useState(null)
+  const [tour, setTour] = React.useState(null)
 
   return (
     <React.Fragment>
@@ -32,7 +32,14 @@ const TourForm = () => {
                 : 'select no of Participants'}
             </Dropdown.Toggle>
 
-            <Dropdown.Menu className="w-100">
+            <Dropdown.Menu
+              className="w-100"
+              css={css`
+                max-height: 200px;
+                overflow-y: auto;
+                overflow-x: hidden;
+              `}
+            >
               {Array(9)
                 .fill()
                 .map((v, i) => i)
@@ -41,16 +48,16 @@ const TourForm = () => {
                     <Dropdown.Item
                       key={`part-${index}`}
                       onClick={() => {
-                        setParticipants(index + 1);
+                        setParticipants(index + 1)
                       }}
                     >
                       {index + 1}
                     </Dropdown.Item>
-                  );
+                  )
                 })}
               <Dropdown.Item
                 onClick={() => {
-                  setParticipants(10);
+                  setParticipants(10)
                 }}
               >
                 at least 10
@@ -70,19 +77,23 @@ const TourForm = () => {
             >
               {tour ? tour.title : 'select tour'}
             </Dropdown.Toggle>
-            {tour && (
-              <p className="p-2">
-                More details on the{' '}
-                <Link to={`/jeepTours/${tour.slug}`}>{tour.title}</Link>
-              </p>
-            )}
+            <p className={`p-2 ${!tour && 'text-muted'}`}>
+              {tour ? (
+                <>
+                  More details on the{' '}
+                  <Link to={`/jeep-tours/${tour.slug}`}>{tour.title}</Link>
+                </>
+              ) : (
+                'Select the tour you want'
+              )}
+            </p>
             <Dropdown.Menu className="w-100">
               {allTours.map(tour => {
                 return (
                   <Dropdown.Item key={tour.title} onClick={() => setTour(tour)}>
                     {tour.title}
                   </Dropdown.Item>
-                );
+                )
               })}
             </Dropdown.Menu>
           </Dropdown>
@@ -101,7 +112,7 @@ const TourForm = () => {
         </Col>
       </Row>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default TourForm;
+export default TourForm

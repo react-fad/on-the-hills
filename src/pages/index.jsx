@@ -1,24 +1,28 @@
-import React from 'react';
-import Layout from '../components/layout';
-import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import React from 'react'
+import Layout from '../components/layout'
+import styled from '@emotion/styled'
+import { css } from '@emotion/core'
 // import usePosts from "../hooks/use-posts"
 
-import Hero from '../components/hero';
+import Hero from '../components/hero'
 
-import TourForm from '../components/tourForm';
-import '../custom.scss';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import TourForm from '../components/tourForm'
+import '../custom.scss'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+
 // import PostPreview from "../components/post-preview"
 
 const WelcomeToBrasov = styled(Row)`
   text-align: center;
-`;
-const LargeVideo = styled.section``;
-const SubscriptionSection = styled(Row)``;
-const PhotoGallery = styled.section``;
+`
+const LargeVideo = styled.section``
+const SubscriptionSection = styled(Row)``
+const PhotoGallery = styled.section``
 
 export default () => {
   // const posts = usePosts()
@@ -32,7 +36,7 @@ export default () => {
             <Col className="p-4">
               <h2>TRANSYLVANIAN WILDERNESS ADVENTURE</h2>
               <h3>WELCOME TO BRASOV</h3>
-              <p>
+              <p class="lead">
                 Experience the ultimate Jeep tour adventure on the mountains and
                 hills surrounding Brasov City. We organize daily 4x4 tours with
                 professional drivers, offering amazing outdoor sightsees in the
@@ -45,11 +49,12 @@ export default () => {
             <Col>
               <p>
                 Get exclusive free seats and last minute discount jeep tours,
-                learn about our partners services and the first to know what’s
+                learn about our partners services and the first to know what is
                 new.
               </p>
             </Col>
             <Col>
+              <FontAwesomeIcon icon={faEnvelope} />
               SUBSCRIBE
               <input type="email" placeholder="email" />
             </Col>
@@ -77,5 +82,5 @@ export default () => {
         </Container>
       </Layout>
     </React.Fragment>
-  );
-};
+  )
+}
