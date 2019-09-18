@@ -9,6 +9,7 @@ import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
+import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 
 const II = styled(Image)`
@@ -63,39 +64,18 @@ const Header = () => {
   `)
 
   return (
-    <header
-      css={css`
-        position: absolute;
-        top: 0;
-        width: 100vw;
-        background: rgb(12, 37, 68, 0.6);
-        display: flex;
-        align-items: center;
-        box-shadow: 0px 0px 9px 3px rgba(41, 41, 41, 0.25);
-
-        @media (min-width: calc(750px + 10vw)) {
-          padding-left: calc((100vw - 750px - 0.5rem) / 2);
-          padding-right: calc((100vw - 750px - 0.5rem) / 2);
-        }
-      `}
-    >
-      <NavLink
-        to="/"
-        css={css`
-          padding: 0;
-        `}
-      >
-        <II
-          css={css`
-            margin-top: 0;
-            width: 100px;
-            padding-top: 0;
-          `}
-          fluid={image.sharp.fluid}
-        />
-      </NavLink>
-      <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+    <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
+      <Container fluid={false}>
+        <Navbar.Brand href="#home">
+          <II
+            css={css`
+              margin-top: 0;
+              width: 100px;
+              padding-top: 0;
+            `}
+            fluid={image.sharp.fluid}
+          />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
@@ -113,13 +93,9 @@ const Header = () => {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-          </Form>
         </Navbar.Collapse>
-      </Navbar>
-    </header>
+      </Container>
+    </Navbar>
   )
 }
 // <nav
@@ -143,3 +119,36 @@ const Header = () => {
 // </nav>
 
 export default Header
+{
+  /* <header
+css={css`
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  background: rgb(12, 37, 68, 0.6);
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 0px 9px 3px rgba(41, 41, 41, 0.25);
+
+  @media (min-width: calc(750px + 10vw)) {
+    padding-left: calc((100vw - 750px - 0.5rem) / 2);
+    padding-right: calc((100vw - 750px - 0.5rem) / 2);
+  }
+`}
+>
+<NavLink
+  to="/"
+  css={css`
+    padding: 0;
+  `}
+>
+  <II
+    css={css`
+      margin-top: 0;
+      width: 100px;
+      padding-top: 0;
+    `}
+    fluid={image.sharp.fluid}
+  />
+</NavLink> */
+}

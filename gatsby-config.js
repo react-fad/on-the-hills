@@ -14,6 +14,14 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`archivo black`, `robot`],
+        display: 'swap',
+      },
+    },
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
