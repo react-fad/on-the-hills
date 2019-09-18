@@ -1,19 +1,19 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import { css } from '@emotion/core'
-import Dropdown from 'react-bootstrap/Dropdown'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
-import useTours from '../hooks/useTours'
-import { Link } from 'gatsby'
+import React from 'react';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
+import Dropdown from 'react-bootstrap/Dropdown';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import useTours from '../hooks/useTours';
+import { Link } from 'gatsby';
 
-const FormSection = styled(Row)``
+const FormSection = styled(Row)``;
 
 const TourForm = () => {
-  const allTours = useTours()
-  const [participants, setParticipants] = React.useState(null)
-  const [tour, setTour] = React.useState(null)
+  const allTours = useTours();
+  const [participants, setParticipants] = React.useState(null);
+  const [tour, setTour] = React.useState(null);
 
   return (
     <React.Fragment>
@@ -48,16 +48,16 @@ const TourForm = () => {
                     <Dropdown.Item
                       key={`part-${index}`}
                       onClick={() => {
-                        setParticipants(index + 1)
+                        setParticipants(index + 1);
                       }}
                     >
                       {index + 1}
                     </Dropdown.Item>
-                  )
+                  );
                 })}
               <Dropdown.Item
                 onClick={() => {
-                  setParticipants(10)
+                  setParticipants(10);
                 }}
               >
                 at least 10
@@ -93,7 +93,7 @@ const TourForm = () => {
                   <Dropdown.Item key={tour.title} onClick={() => setTour(tour)}>
                     {tour.title}
                   </Dropdown.Item>
-                )
+                );
               })}
             </Dropdown.Menu>
           </Dropdown>
@@ -106,13 +106,13 @@ const TourForm = () => {
       </form>
       <Row>
         <Col className="text-center">
-          <Button type="button" variant="primary" size="lg">
+          <Button type="button" variant="secondary" size="lg">
             Book your tour!
           </Button>
         </Col>
       </Row>
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default TourForm
+export default TourForm;

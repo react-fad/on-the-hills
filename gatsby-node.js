@@ -9,13 +9,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
       }
     }
-  `)
+  `);
 
   if (result.errors) {
-    reporter.panic('failed to get tours', result.errors)
+    reporter.panic('failed to get tours', result.errors);
   }
 
-  const tours = result.data.allMdx.nodes
+  const tours = result.data.allMdx.nodes;
 
   tours.forEach(tour => {
     actions.createPage({
@@ -24,6 +24,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       context: {
         slug: tour.frontmatter.slug,
       },
-    })
-  })
-}
+    });
+  });
+};

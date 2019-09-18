@@ -24,7 +24,7 @@ const Layout = ({ children, isUnderMenu = false }) => {
       <main
         css={css`
           margin-top: ${isUnderMenu ? 0 : '101px'};
-          min-height: calc(100vh - 200px);
+          min-height: calc(100vh - 100px);
         `}
       >
         {isUnderMenu ? children : <Container>{children}</Container>}
