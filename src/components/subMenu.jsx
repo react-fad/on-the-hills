@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import { Link } from 'gatsby'
-import useTours from '../hooks/useTours'
-import { css } from '@emotion/core'
+import React from 'react';
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
+import useTours from '../hooks/useTours';
+import { css } from '@emotion/core';
 
 const OuterMenu = styled.div`
   position: absolute;
@@ -16,7 +16,7 @@ const OuterMenu = styled.div`
 
   transition: max-height 0.2s ease-in-out;
   max-height: ${p => (p.isVisible ? '500px' : '0')};
-`
+`;
 
 const NavLink = styled(Link)`
   color: #0c2544;
@@ -44,19 +44,19 @@ const NavLink = styled(Link)`
   &:last-of-type {
     margin-right: 0;
   }
-`
+`;
 
 const SubMenuLink = styled(NavLink)`
   font-size: 16px;
   padding: 0.8rem 1rem;
   display: block;
   min-width: 7rem;
-`
+`;
 
 const SubMenu = () => {
-  const allTours = useTours()
-  const [isVisible, setIsVisible] = React.useState(false)
-  const [isAnimating, setIsAnimating] = React.useState(false)
+  const allTours = useTours();
+  const [isVisible, setIsVisible] = React.useState(false);
+  const [isAnimating, setIsAnimating] = React.useState(false);
   return (
     <span
       css={css`
@@ -64,12 +64,12 @@ const SubMenu = () => {
         position: relative;
       `}
       onMouseEnter={() => {
-        setIsAnimating(true)
-        setIsVisible(true)
+        setIsAnimating(true);
+        setIsVisible(true);
       }}
       onMouseLeave={() => {
-        setIsAnimating(true)
-        setIsVisible(false)
+        setIsAnimating(true);
+        setIsVisible(false);
       }}
     >
       <NavLink
@@ -77,7 +77,7 @@ const SubMenu = () => {
         activeClassName="current-page"
         ismenuopened={String(isVisible)}
         onAnimationEnd={() => {
-          setIsAnimating(false)
+          setIsAnimating(false);
         }}
       >
         Jeep Tours
@@ -93,12 +93,12 @@ const SubMenu = () => {
               >
                 {tour.title}
               </SubMenuLink>
-            )
+            );
           })}
         </OuterMenu>
       )}
     </span>
-  )
-}
+  );
+};
 
-export default SubMenu
+export default SubMenu;

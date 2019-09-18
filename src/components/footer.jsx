@@ -1,8 +1,8 @@
-import React from 'react'
-import { Global, css } from '@emotion/core'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import React from 'react';
+import { Global, css } from '@emotion/core';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Layout = ({ children }) => {
   return (
@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
         </Row>
       </Container>
     </footer>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

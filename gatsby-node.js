@@ -1,4 +1,4 @@
-exports.createPages = async ({actions, graphql, reporter}) => {
+exports.createPages = async ({ actions, graphql, reporter }) => {
   const result = await graphql(`
     query {
       allMdx {
@@ -11,7 +11,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
     }
   `);
 
-  if(result.errors) {
+  if (result.errors) {
     reporter.panic('failed to get tours', result.errors);
   }
 
@@ -19,11 +19,11 @@ exports.createPages = async ({actions, graphql, reporter}) => {
 
   tours.forEach(tour => {
     actions.createPage({
-      path: `/jeepTours/${tour.frontmatter.slug}/`, 
+      path: `/jeepTours/${tour.frontmatter.slug}/`,
       component: require.resolve('./src/templates/tour.js'),
       context: {
-        slug: tour.frontmatter.slug
-      }
+        slug: tour.frontmatter.slug,
+      },
     });
-  })
-}
+  });
+};

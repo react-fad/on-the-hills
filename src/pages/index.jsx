@@ -1,35 +1,35 @@
-import React from 'react'
-import Layout from '../components/layout'
-import styled from '@emotion/styled'
-import { css } from '@emotion/core'
+import React from 'react';
+import Layout from '../components/layout';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 // import usePosts from "../hooks/use-posts"
 
-import Hero from '../components/hero'
+import Hero from '../components/hero';
 
-import TourForm from '../components/tourForm'
-import '../custom.scss'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import TourForm from '../components/tourForm';
+import '../custom.scss';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 // import PostPreview from "../components/post-preview"
 
 const WelcomeToBrasov = styled(Row)`
   text-align: center;
-`
-const LargeVideo = styled.section``
-const SubscriptionSection = styled(Row)``
-const PhotoGallery = styled.section``
+`;
+const LargeVideo = styled.section``;
+const SubscriptionSection = styled(Row)``;
+const PhotoGallery = styled.section``;
 
 export default () => {
   // const posts = usePosts()
   return (
     <React.Fragment>
-      <Layout>
+      <Layout isUnderMenu={true}>
         <Hero />
         <Container fluid={false}>
           <TourForm />
-          <WelcomeToBrasov>
-            <Col>
+          <WelcomeToBrasov className="p-5">
+            <Col className="p-4">
               <h2>TRANSYLVANIAN WILDERNESS ADVENTURE</h2>
               <h3>WELCOME TO BRASOV</h3>
               <p>
@@ -77,5 +77,5 @@ export default () => {
         </Container>
       </Layout>
     </React.Fragment>
-  )
-}
+  );
+};

@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby';
 
 const useTours = () => {
   const data = useStaticQuery(graphql`
@@ -14,14 +14,14 @@ const useTours = () => {
         }
       }
     }
-  `)
+  `);
 
   return data.allMdx.nodes.map(post => ({
     title: post.frontmatter.title,
     price: post.frontmatter.price,
     slug: post.frontmatter.slug,
     excerpt: post.excerpt,
-  }))
-}
+  }));
+};
 
-export default useTours
+export default useTours;

@@ -4,6 +4,7 @@ import { css } from '@emotion/core'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import Image from 'gatsby-image'
 import SubMenu from './subMenu'
+import useTours from '../hooks/useTours'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
@@ -20,8 +21,8 @@ const II = styled(Image)`
 `
 
 const NavLink = styled(Link)`
-  color: #222;
-  color: #0C2544;
+  /* color: #222; */
+  /* color: #0C2544; */
   color: white;
   font-size: 1rem;
   box-shadow:
@@ -51,9 +52,10 @@ const NavLink = styled(Link)`
 `
 
 const Header = () => {
+  const allTours = useTours()
   const { image } = useStaticQuery(graphql`
     query {
-      image: file(relativePath: { eq: "on-the-hills-logo.png" }) {
+      image: file(relativePath: { eq: "on-the-hills-logo-tr.png" }) {
         sharp: childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid_withWebp
@@ -64,9 +66,17 @@ const Header = () => {
   `)
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
+    <Navbar
+      bg="light"
+      variant="light"
+      expand="lg"
+      fixed="top"
+      css={css`
+        background: rgba(255, 255, 255, 0.85) !important;
+      `}
+    >
       <Container fluid={false}>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand as={Link} to="/">
           <II
             css={css`
               margin-top: 0;
@@ -79,19 +89,38 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
+            <NavDropdown title="About" id="basic-nav-dropdown">
+              {allTours.map(tour => {
+                return (
+                  <NavDropdown.Item
+                    key={tour.slug}
+                    as={Link}
+                    to={`/jeepTours/${tour.slug}`}
+                  >
+                    {tour.title}
+                  </NavDropdown.Item>
+                )
+              })}
             </NavDropdown>
+            <NavDropdown title="Jeep Tours" id="basic-nav-dropdown">
+              {allTours.map(tour => {
+                return (
+                  <NavDropdown.Item
+                    key={tour.slug}
+                    as={Link}
+                    to={`/jeepTours/${tour.slug}`}
+                  >
+                    {tour.title}
+                  </NavDropdown.Item>
+                )
+              })}
+            </NavDropdown>
+            <Nav.Link as={Link} to="/teamBuildings/">
+              Team Buildings
+            </Nav.Link>
+            <Nav.Link as={Link} to="/contact/">
+              Contact
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
