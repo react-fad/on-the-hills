@@ -8,6 +8,8 @@ import Image from 'gatsby-image';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
+
 import {
   faFacebook,
   faTwitter,
@@ -34,7 +36,12 @@ const List = styled.ul`
 const Layout = ({ children }) => {
   const { image } = useLogo();
   return (
-    <footer className="py-3 shadow-sm bg-gradient-light" css={css``}>
+    <footer
+      className="py-3 shadow-sm bg-gradient-light"
+      css={css`
+        border-top: 1px solid lightgrey;
+      `}
+    >
       <Container fluid={false}>
         <Row>
           <Col>
@@ -58,10 +65,10 @@ const Layout = ({ children }) => {
           </Col>
           <Col>
             <p>
-              Call us:
-              <a href="tel:+40725064902">(+4) 0725 06 49 02</a>
+              <FontAwesomeIcon className="mr-2" icon={faPhoneAlt} />
+              Call us: <a href="tel:+40725064902">(+4) 0725 06 49 02</a>
             </p>
-            <p>Follow us:</p>
+            <p className="text-muted">Follow us:</p>
             <List
               css={css`
                 li {
@@ -70,29 +77,48 @@ const Layout = ({ children }) => {
               `}
             >
               <li>
-                <FontAwesomeIcon icon={faFacebook} /> Facebook
+                <a href="/">
+                  <FontAwesomeIcon icon={faFacebook} /> Facebook
+                </a>
               </li>
               <li>
-                <FontAwesomeIcon icon={faTwitter} />
-                Twitter
+                <a href="/">
+                  <FontAwesomeIcon icon={faTwitter} />
+                  Twitter
+                </a>
               </li>
               <li>
-                <FontAwesomeIcon icon={faYoutube} />
-                Youtube
+                <a href="/">
+                  <FontAwesomeIcon icon={faYoutube} />
+                  Youtube
+                </a>
               </li>
               <li>
-                <FontAwesomeIcon icon={faPinterest} />
-                Pinterest
+                <a href="/">
+                  <FontAwesomeIcon icon={faPinterest} />
+                  Pinterest
+                </a>
               </li>
               <li>
-                <FontAwesomeIcon icon={faInstagram} />
-                Instagram
+                <a href="/">
+                  <FontAwesomeIcon icon={faInstagram} />
+                  Instagram
+                </a>
               </li>
             </List>
           </Col>
-          <Col>
+          <Col
+            css={css`
+              p {
+                margin-bottom: 5px;
+                font-size: smaller;
+              }
+            `}
+          >
             <p className="lead">INFO POINT IN BRASOV</p>
-            <p>Visit us at Timeout2go</p>
+            <p>
+              Visit us at <b>Timeout2go</b>
+            </p>
             <p>Monday to Sunday 10AM – 6PM</p>
             <p>Address: No. 18, Baritiu Street</p>
             <iframe

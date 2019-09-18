@@ -97,7 +97,12 @@ export default () => {
                 card for one day or half a day jeep tour or surprise someone
                 with a custom 4x4 tour.
               </p>
-              <Button as={Link} variant="outline-secondary" href="/">
+              <Button
+                as={Link}
+                variant="outline-secondary"
+                href="/"
+                className="float-right"
+              >
                 GIFT CARDS
               </Button>
             </Col>
@@ -107,7 +112,12 @@ export default () => {
                 Let us plan your unique tour. You can have outdoor 4x4 trips for
                 a special occasion or make combo packages like jeep & rafting.
               </p>
-              <Button as={Link} variant="outline-secondary" href="/">
+              <Button
+                as={Link}
+                variant="outline-secondary"
+                href="/"
+                className="float-right"
+              >
                 MORE INFO
               </Button>
             </Col>
