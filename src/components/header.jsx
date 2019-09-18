@@ -13,6 +13,8 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
   const allTours = useTours();
@@ -78,6 +80,16 @@ const Header = () => {
               Contact
             </Nav.Link>
           </Nav>
+        </Navbar.Collapse>
+
+        <Navbar.Collapse className="justify-content-end">
+          <Navbar.Text>
+            <FontAwesomeIcon
+              className="mr-2 text-secondary"
+              icon={faPhoneAlt}
+            />
+            <a href="tel:+40725064902">(+4) 0725 06 49 02</a>
+          </Navbar.Text>
         </Navbar.Collapse>
       </Container>
     </Navbar>

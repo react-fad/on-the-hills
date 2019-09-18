@@ -7,6 +7,8 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import useTours from '../hooks/useTours';
 import { Link } from 'gatsby';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const FormSection = styled(Row)``;
 
@@ -14,6 +16,7 @@ const TourForm = () => {
   const allTours = useTours();
   const [participants, setParticipants] = React.useState(null);
   const [tour, setTour] = React.useState(null);
+  const [startDate, setStartDate] = React.useState(new Date());
 
   return (
     <React.Fragment>
@@ -99,9 +102,27 @@ const TourForm = () => {
           </Dropdown>
         </Col>
 
-        <Col className="text-center">
+        <Col
+          className="text-center"
+          css={css`
+            .react-datepicker-wrapper input {
+              width: 100%;
+              padding: 6px;
+              text-align: center;
+            }
+            .react-datepicker-wrapper,
+            .react-datepicker__input-container {
+              width: 100%;
+            }
+          `}
+        >
           <h5>Date</h5>
-          <input type="date" placeholder="select date" />
+          <DatePicker
+            showPopperArrow={false}
+            selected={startDate}
+            onChange={date => setStartDate(date)}
+            minDate={new Date()}
+          />
         </Col>
       </form>
       <Row>

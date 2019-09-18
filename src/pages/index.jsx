@@ -3,8 +3,7 @@ import Layout from '../components/layout';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { Link } from 'gatsby';
-
-// import usePosts from "../hooks/use-posts"
+import Image from 'gatsby-image';
 
 import Hero from '../components/hero';
 
@@ -19,6 +18,7 @@ import Button from 'react-bootstrap/Button';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import PhotoGallery from './imagesGallery';
 
 const WelcomeToBrasov = styled(Row)`
   text-align: center;
@@ -26,7 +26,6 @@ const WelcomeToBrasov = styled(Row)`
 
 const LargeVideo = styled.section``;
 const SubscriptionSection = styled(Row)``;
-const PhotoGallery = styled.section``;
 
 export default () => {
   return (
@@ -53,7 +52,9 @@ export default () => {
         </Container>
         <LargeVideo>
           <iframe
+            title="testing youTube"
             css={css`
+              height: 50vh;
               min-height: 400px;
               width: 100%;
             `}
@@ -64,7 +65,7 @@ export default () => {
           ></iframe>
         </LargeVideo>
         <Container fluid={false}>
-          <SubscriptionSection className="py-4">
+          <SubscriptionSection className="py-4 my-5">
             <Col>
               <p className="">
                 Get exclusive free seats and last minute discount jeep tours,
@@ -88,7 +89,9 @@ export default () => {
               </InputGroup>
             </Col>
           </SubscriptionSection>
-          <PhotoGallery>PhotoGallery</PhotoGallery>
+        </Container>
+<PhotoGallery />
+        <Container fluid={false}>
           <Row className="my-3 mb-5">
             <Col>
               <h3>Gift cards</h3>
@@ -100,7 +103,7 @@ export default () => {
               <Button
                 as={Link}
                 variant="outline-secondary"
-                href="/"
+                to="/"
                 className="float-right"
               >
                 GIFT CARDS
@@ -115,7 +118,7 @@ export default () => {
               <Button
                 as={Link}
                 variant="outline-secondary"
-                href="/"
+                to="/"
                 className="float-right"
               >
                 MORE INFO

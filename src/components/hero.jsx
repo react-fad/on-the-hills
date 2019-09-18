@@ -26,7 +26,14 @@ const TextBox = styled.div`
   padding-bottom: 3rem;
 
   h1 {
-    text-shadow: 1px 1px 3px white;
+    display: inline;
+    line-height: 1.15;
+    text-shadow: 1px 1px 2px white;
+    text-shadow: -1px 1px 2px white;
+    text-shadow: 1px-1px 2px white;
+    color: #0c2544;
+    /* background: #fbd7d6; */
+    background: #f9c0bf;
   }
 `;
 
@@ -54,11 +61,11 @@ const Hero = () => {
         <TextBox>
           <Container fluid={false}>
             <h1>
-              Hop on your adventure with the best Jeep Tours near Brasov and in
+              Hop on your adventure with the best Jeep Tours near Brasov, in
               Transylvania's Mountains
             </h1>
             <p>
-              <Button variant="primary">Learn more</Button>
+              <Button variant="primary mt-2">Learn more</Button>
             </p>
           </Container>
         </TextBox>

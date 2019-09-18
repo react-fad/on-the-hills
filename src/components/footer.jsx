@@ -47,7 +47,8 @@ const Layout = ({ children }) => {
           <Col>
             <Image
               css={css`
-                width: 100px;
+                width: 16rem;
+                opacity: 0.8;
               `}
               fluid={image.sharp.fluid}
             />
@@ -121,9 +122,10 @@ const Layout = ({ children }) => {
             </p>
             <p>Monday to Sunday 10AM – 6PM</p>
             <p>Address: No. 18, Baritiu Street</p>
+            <p>Brasov, Romania</p>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2789.4745492101824!2d25.585177415984415!3d45.641291079103446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b35b6022be31b5%3A0x79364518e461d996!2sTimeout%202%20Go!5e0!3m2!1sen!2sro!4v1568809978121!5m2!1sen!2sro"
-              allowfullscreen=""
+              allowFullScreen=""
               css={css`
                 border: 0;
                 min-height: 250px;

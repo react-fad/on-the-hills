@@ -37,3 +37,15 @@
 @import 'node_modules/bootstrap/scss/spinners';
 @import 'node_modules/bootstrap/scss/utilities';
 @import 'node_modules/bootstrap/scss/print';
+
+// ----------
+
+::selection {
+  background: lighten(
+    theme-color('secondary'),
+    60%
+  ); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: lighten(theme-color('secondary'), 60%); /* Gecko Browsers */
+}
